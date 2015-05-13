@@ -14,6 +14,7 @@ public class Store {
 	 */
 	private void addToStore(Tower tower){
 		towers.add(tower);
+		// hej
 	}
 	
 	/**
