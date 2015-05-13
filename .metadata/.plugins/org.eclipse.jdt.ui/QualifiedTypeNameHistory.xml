@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="org.newdawn.slick.BasicGame"/>
+<fullyQualifiedTypeName name="org.newdawn.slick.state.StateBasedGame"/>
+<fullyQualifiedTypeName name="org.newdawn.slick.AppGameContainer"/>
+<fullyQualifiedTypeName name="org.newdawn.slick.state.BasicGameState"/>
+</qualifiedTypeNameHistroy>

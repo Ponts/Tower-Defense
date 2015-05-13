@@ -1,0 +1,28 @@
+package towerdefensegame;
+import org.newdawn.slick.GameContainer;
+import org.newdawn.slick.SlickException;
+import org.newdawn.slick.state.StateBasedGame;
+
+public class Setup extends StateBasedGame{
+
+	public static final String name = "TowerDefense";
+	public static int menu =0;
+	public static int options =1;
+	public static int play =2;
+	public static int level1 =2;
+	
+	
+	public Setup(String name) {
+		super(name);)
+	}
+
+	@Override
+	public void initStatesList(GameContainer arg0) throws SlickException {
+		
+		
+	}
+
+	
+	
+	
+}

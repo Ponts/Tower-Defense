@@ -20,3 +20,9 @@ user global configuration and to define the default location to store repositori
 not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
 EGit might behave differently since they see different configuration options.
 This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.jdt.core 4 0 2015-05-13 19:16:27.678
+!MESSAGE Invalid ZIP archive: C:\Users\Pontus\Downloads\lwjgl\jar\lwjgl.jar
+
+!ENTRY org.eclipse.jdt.launching 4 150 2015-05-13 19:16:29.875
+!MESSAGE The archive: C:/Users/Pontus/Downloads/lwjgl/jar/lwjgl.jar which is referenced by the classpath, does not exist.

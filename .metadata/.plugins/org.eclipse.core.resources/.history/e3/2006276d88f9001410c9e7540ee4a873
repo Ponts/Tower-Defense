@@ -1,0 +1,42 @@
+package towerdefensegame;
+import org.newdawn.slick.AppGameContainer;
+import org.newdawn.slick.GameContainer;
+import org.newdawn.slick.SlickException;
+import org.newdawn.slick.state.StateBasedGame;
+
+public class Setup extends StateBasedGame{
+
+	public static final String name = "TowerDefense";
+	public static int meny =0;
+	public static int options =1;
+	public static int playmeny =2;
+	
+	
+	public Setup(String name) {
+		super(name);
+		this.addState(new Meny(meny));
+		this.addState(new Play(playmeny));
+		this.addState(new Options(options));
+		
+	}
+
+	@Override
+	public void initStatesList(GameContainer arg0) throws SlickException {
+		this.getState(meny).init(container, this);
+		this.getState(options).init(container, this);
+		this.getState(playmeny).init(container, this);
+		this.enterState(meny);
+	}
+
+	
+	public static void main(String[] args){
+		try{
+			AppGameContainer app = new AppGameContainer(new Setup(name), 800, 600, false);
+			app.start();
+			
+		}catch(SlickException e){
+			e.printStackTrace();
+		}
+	}
+	
+}

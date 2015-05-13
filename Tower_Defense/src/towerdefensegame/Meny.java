@@ -1,0 +1,43 @@
+package towerdefensegame;
+
+import org.newdawn.slick.GameContainer;
+import org.newdawn.slick.Graphics;
+import org.newdawn.slick.SlickException;
+import org.newdawn.slick.state.BasicGameState;
+import org.newdawn.slick.state.StateBasedGame;
+/**
+ * Det här är main menyn i spelet. 
+ * 
+ *
+ */
+public class Meny extends BasicGameState {
+	 private int ID;
+	public Meny(int state){
+		ID = state; 
+	}
+
+	@Override
+	public void init(GameContainer container, StateBasedGame sbg) throws SlickException {
+		
+		
+	}
+
+	@Override
+	public void render(GameContainer container, StateBasedGame sbg, Graphics g) throws SlickException {
+
+		
+	}
+
+	@Override
+	public void update(GameContainer container, StateBasedGame sbg, int delta) throws SlickException {
+		
+		
+	}
+
+	@Override
+	public int getID() {
+
+		return ID;
+	}
+
+}

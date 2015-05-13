@@ -1,6 +1,8 @@
 package towerdefensegame;
 import java.util.*;
 
+import towerdefensegame.objects.Tower;
+
 public class Store {
 	private ArrayList<Tower> towers;
 	
