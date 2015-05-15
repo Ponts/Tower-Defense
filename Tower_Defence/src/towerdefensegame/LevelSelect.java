@@ -66,7 +66,7 @@ public class LevelSelect extends BasicGameState {
 			} else {
 				if(levelOne){
 					// TODO
-					//sbg.enterState(2);
+					sbg.enterState(2);
 				}
 				levelOne = false;
 			}
