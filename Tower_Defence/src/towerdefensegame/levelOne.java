@@ -21,6 +21,8 @@ public class levelOne extends BasicGameState {
 	private float circleX;
 	private float circleY;
 	
+	private int baseHealth;
+	
 	
 	public levelOne(int levelOne) {
 		this.ID = levelOne; 
@@ -31,7 +33,8 @@ public class levelOne extends BasicGameState {
 	public void init(GameContainer container, StateBasedGame sbg) throws SlickException {
 		theMap = new Image("res//MAP1.png");
 		waves = new ArrayList<Circle>();
-		waves.add(new Circle(40, 45, 5));
+		waves.add(new Circle(40, 0, 5));
+		baseHealth = 30;
 	}
 	
 	public void update(GameContainer container, StateBasedGame sbg, int delta) throws SlickException {
@@ -43,13 +46,17 @@ public class levelOne extends BasicGameState {
 		boolean leftMousePressed = input.isMousePressed(input.MOUSE_LEFT_BUTTON);
 		
 		
-		for(Circle c: waves){
+		Circle c;
+		for(int i = waves.size() -1; i >= 0; i-- ){
+			
+			c = waves.get(i);
 			circleX = c.getCenterX();
 			circleY = c.getCenterY();
 			
-			System.out.println("circleY == " + circleY + ", circleX = " + circleX);
-			
-			if(circleX < 356 && circleY == 45) {
+			if(circleY < 45){
+				c.setCenterY(circleY + delta/6f);
+			}
+			else if(circleX < 356 && circleY >= 45 && circleY < 47) {
 				c.setCenterX(circleX + delta/6f);
 			}
 			else if(circleX >= 356 && circleY < 118){
@@ -62,14 +69,19 @@ public class levelOne extends BasicGameState {
 				c.setCenterY(circleY + delta/6f);
 			}
 			else if(circleX < 355 && circleY >= 191 && circleY < 200){
-				System.out.println("hej");
 				c.setCenterX(circleX + delta/6f);
 			}
 			else if(circleX >= 355 && circleY < 400){
 				c.setCenterY(circleY + delta/6f);
 			}
 			else{
-				c.closed();
+				waves.remove(c);
+				baseHealth -= 1;
+				
+				if(baseHealth <= 0){
+					System.out.println("Game Over!");
+					sbg.enterState(0);
+				}
 			}
 		}
 	}
@@ -80,8 +92,11 @@ public class levelOne extends BasicGameState {
 		g.setColor(Color.blue);
 		for(Circle c: waves){
 			g.fill(c);
+			if(c.getCenterY() >= 400){
+				g.destroy();
+			}
 		}
-
+			
 		}
 
 	@Override
