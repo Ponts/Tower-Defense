@@ -1,16 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="20" height="20" tilewidth="32" tileheight="32" nextobjectid="1">
- <tileset firstgid="1" name="tileset" tilewidth="32" tileheight="32">
-  <image source="../../Pictures/tileset.png" width="544" height="1200"/>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="32" tileheight="32" nextobjectid="1">
+ <tileset firstgid="1" name="sewer_tileset" tilewidth="32" tileheight="32">
+  <image source="C:/Program Files (x86)/Tiled/examples/sewer_tileset.png" width="192" height="217"/>
  </tileset>
- <layer name="Tile Layer 1" width="20" height="20">
+ <layer name="Tile Layer 1" width="100" height="100">
   <data encoding="base64" compression="zlib">
-   eJzlk9sNwjAMRR0J2AAWAPH45z0BYgNgE2ADYANgjYxRMQEjsAI3SiPSi4Gi8Eelo9R1etykTkVEqmBo/JhCDdRBI/c1JI05+S6JTvatwQZsjY9j+N2M5mu+HdiDQ+64iod9bcQdmq/5juAEzm987rtGYEzzNZ+V4ho1H++DjfKxT+NmPLHPyqMO1wu+JuKWsufOlZnn7/vk6yMeGH09/H/DfRdjzxSfaesNOe6FOO/6dAKmX/i4F+I81yrji3shnJuwl1zLKufjVT9ofcR9V7ZfyhL7Zj/2LcAyEedz40r+77oDh1xTSA==
-  </data>
- </layer>
- <layer name="Road" width="20" height="20" visible="0">
-  <data encoding="base64" compression="zlib">
-   eJxjYICAh4wMVAVDzTwQHxlTwzxccgNl3g0cfkRnI+MbZIQHsvqXWPRSYh42vfjMQ/cPPr8Tax6xbh0q5h0nMfyOE8grQy3vDzbzhhIAAIYVNn8=
+   eJzt2CEOw1AQQ8EPc4De/6wFQWYNSG0wI/kED6y01znnGhi3dgc9UruDHqndQY/0+dP0+I0eW/TY8uZN0OM5PbbosUWPLXps0WOLHlv02KLHFj22+Jds0WOLHlvevB9Pxq3dQY/U7qBHanfQI7U76JHaHfRI7Q56pHYHPVK7gx6p3UEPAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACATV+gQSiZ
   </data>
  </layer>
 </map>
