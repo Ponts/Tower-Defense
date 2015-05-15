@@ -1,21 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8">
+	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8">
 		<attributes>
 			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="C:/Users/Pontus/Downloads/lwjgl-2.9.2/native/windows"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/Pontus/Downloads/slick/lib/ibxm.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Pontus/Downloads/slick/lib/jinput.jar">
-		<attributes>
-			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="C:/Users/Pontus/Downloads/lwjgl/native/windows"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/Pontus/Downloads/slick/lib/jogg-0.0.7.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Pontus/Downloads/slick/lib/jorbis-0.0.15.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Pontus/Downloads/slick/lib/lwjgl.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Pontus/Downloads/slick/lib/slick.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Pontus/Downloads/lwjgl-2.9.2/jar/lwjgl.jar"/>
+	<classpathentry kind="lib" path="res/slick.jar"/>
+	<classpathentry kind="lib" path="res/lwjgl.jar"/>
+	<classpathentry kind="lib" path="res/jorbis-0.0.15.jar"/>
+	<classpathentry kind="lib" path="res/jogg-0.0.7.jar"/>
+	<classpathentry kind="lib" path="res/jinput.jar"/>
+	<classpathentry kind="lib" path="res/ibxm.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
