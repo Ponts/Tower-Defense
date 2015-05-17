@@ -48,13 +48,13 @@ public class Enemy implements Mover{
 		return this.x;
 	}
 
-	/*public void move(Path path)
+	public void move(Path path)
 	{
 		x=path.getStep(i).getX()*32;
 		y=path.getStep(i).getY()*32;
 		i++;
 	}
-	*/
+	
 	
 	public void render(GameContainer container, StateBasedGame sbg, Graphics g)
 			throws SlickException {

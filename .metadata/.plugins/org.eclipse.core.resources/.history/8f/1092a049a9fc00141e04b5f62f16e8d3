@@ -8,7 +8,7 @@
    <property name="road" value="1"/>
   </properties>
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC2NgwARmjFgEqQyGqx0gPjKmlR245MgFB/DYSU1/IOOLeOzDhqlhPzY2PrGBtgNbOKxHkl+PQw+pdpAqTw87LmIKUd0OasTHAQb86XS4lnVD1Q5sAAC7c0CICAcAAA==
+   H4sIAAAAAAAAC2NgwARmjFgEqQyGqx0gPjKmlR245Aa7HbjCB52NTy0l9mNj4xMbaDsIhQW17CBVfiTbQQhTagc5YNQOygAA3ViE0wgHAAA=
   </data>
  </layer>
  <layer name="Scenery" width="25" height="18" visible="0">
@@ -21,7 +21,7 @@
    <property name="Collision" value="1"/>
   </properties>
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC82T7QnCMBCGc8W6gXUAxY//ih8TCE6gbiBOoG6gbqCuVJygI7iCb2kCl7O1sangwUOhebmnpHeBUirQNECosgo9abK+nBaItCPypF3gWDDHg37v2MNxAEdSbyX7xWTnXR0nZM/goh2JRjp6OO+TnXd1XJG9gfsHR/r9EzAlO+/qkJXnKCoXRx5PypCORODi6KBPN2em0v5xTY4R+oyp/C74Hg2QH5L9zvWuTF7OJT9P92gG5p4OOZf8XPqrOvhcmv03/0b6qzjKSu7Ft44q/INjBdaeKP3cFDi2YFkTO9b3BZ0veIAIBwAA
+   H4sIAAAAAAAAC2NiYGBggmIWIGYFYjNGCE0JZkMyFxmLMkAAyA5KgTgOOzwG0A4QHxnTyo77DBCMLqcG5KtjsZeadpgD+RZk2rGdATV8sNmBHobbkeQJ2YEPINuxnQFhN7ob8NmhDFSjgide0f1Bjh0mQDWmjNjDAj1dwdgaQFqTEVWM2LAilE5h8pZA2orGdmATo6Ud2xlItwNX+sSV56mRdgmBwWBHJBBHUYhBdoDoaBx2ZAGxN5VwDpK5AHV5GsAIBwAA
   </data>
  </layer>
 </map>

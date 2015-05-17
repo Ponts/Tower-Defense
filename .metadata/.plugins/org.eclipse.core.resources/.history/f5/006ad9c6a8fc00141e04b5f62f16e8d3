@@ -13,6 +13,7 @@ import org.newdawn.slick.tiled.TiledMap;
 import org.newdawn.slick.util.pathfinding.AStarPathFinder;
 import org.newdawn.slick.util.pathfinding.Path;
 import org.newdawn.slick.util.pathfinding.PathFinder;
+import org.newdawn.slick.util.pathfinding.TileBasedMap;
 
 import towerdefensegame.objects.*;
 
@@ -42,7 +43,7 @@ public class LevelTwo extends BasicGameState {
 		
 		LayerBasedMap blockedMap = new LayerBasedMap(map, 1);
 		// Add enemies
-		enemy = new Enemy("cactiball", 5*32, 0 );
+		enemy = new Enemy("cactiball", 5, 0 );
 		ph = new AStarPathFinder(blockedMap, 1000, false);
 		path = ph.findPath(enemy, 5,0,20,16 );
 		
@@ -59,7 +60,7 @@ public class LevelTwo extends BasicGameState {
 			g.drawImage(t.getSprite(), t.getX(), container.getHeight() - t.getY());
 		}
 		
-		enemy.render(container, sbg, g);
+		
 		
 		
 	}
@@ -79,7 +80,9 @@ public class LevelTwo extends BasicGameState {
 		if(input.isKeyPressed(input.KEY_ESCAPE)) {
 			sbg.enterState(1);
 		}
-		
+		if(input.isKeyPressed(input.KEY_P)){
+			container.pause();
+		}
 		//spawn different towers
 		//Basic Tower
 		if(input.isKeyPressed(input.KEY_1) && map.getTileId((x+16)/32,(y+16)/32,1) != 0) {
@@ -106,7 +109,7 @@ public class LevelTwo extends BasicGameState {
 		
 		
 		//Make enemies move TODO
-		//enemy.move(path);
+		
 	}
 
 	@Override

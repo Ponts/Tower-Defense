@@ -54,11 +54,11 @@ public class Enemy implements Mover{
 		y=path.getStep(i).getY()*32;
 		i++;
 	}
-	*/
+	
 	
 	public void render(GameContainer container, StateBasedGame sbg, Graphics g)
 			throws SlickException {
 		g.drawImage(sprite, x, y);
-	}
+	}*/
 
 }

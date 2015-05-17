@@ -2,7 +2,6 @@ package towerdefensegame.objects;
 
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
-import org.newdawn.slick.geom.Shape;
 
 public class Tower {
 	private String name;

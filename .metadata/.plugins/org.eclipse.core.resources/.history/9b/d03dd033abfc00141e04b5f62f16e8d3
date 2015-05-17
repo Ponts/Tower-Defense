@@ -8,7 +8,6 @@ import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.StateBasedGame;
 import org.newdawn.slick.util.pathfinding.Mover;
-import org.newdawn.slick.util.pathfinding.Path;
 import org.newdawn.slick.util.pathfinding.PathFinder;
 
 public class Enemy implements Mover{
@@ -19,14 +18,12 @@ public class Enemy implements Mover{
 	private String special = null;
 	private Image sprite;
 	private float x,y;
-	private String name;
-	private int i = 0;
+	
 	
 	public Enemy(String name, float xPos, float yPos) throws SlickException{
 		this.sprite = new Image("res//" + name + ".png");
 		this.x=xPos;
 		this.y=yPos;
-		this.name = name;
 	}
 	public void initTank(){
 		this.walkSpeed = 1;
@@ -48,17 +45,10 @@ public class Enemy implements Mover{
 		return this.x;
 	}
 
-	/*public void move(Path path)
-	{
-		x=path.getStep(i).getX()*32;
-		y=path.getStep(i).getY()*32;
-		i++;
-	}
-	*/
 	
 	public void render(GameContainer container, StateBasedGame sbg, Graphics g)
 			throws SlickException {
-		g.drawImage(sprite, x, y);
+		g.drawImage("res//" + name + ".png", x, y);
 	}
 
 }
