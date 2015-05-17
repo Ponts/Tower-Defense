@@ -21,12 +21,14 @@ public class Enemy implements Mover{
 	private float x,y;
 	private String name;
 	private int i = 0;
+	private int bounty;
 	
-	public Enemy(String name, float xPos, float yPos) throws SlickException{
+	public Enemy(String name, float xPos, float yPos, int bounty) throws SlickException{
 		this.sprite = new Image("res//" + name + ".png");
 		this.x=xPos;
 		this.y=yPos;
 		this.name = name;
+		this.bounty = bounty;
 	}
 	public void initTank(){
 		this.walkSpeed = 1;
@@ -61,4 +63,25 @@ public class Enemy implements Mover{
 		g.drawImage(sprite, x, y);
 	}
 
+	public void takeDamage(int damage){
+		health = health - damage;
+		
+	}
+	
+	public int getHealth(){
+		return health;
+	}
+	
+	public int getBounty(){
+		return bounty;
+	}
+	
+	public void setX(float x){
+		this.x=x;
+	}
+	
+	public void setY(float y){
+		this.y=y;
+	}
 }
+

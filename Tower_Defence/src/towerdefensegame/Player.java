@@ -15,7 +15,7 @@ public class Player {
 	/**
 	 * Player killed a enemy,  increase no of kills.
 	 */
-	private void killed()
+	public void killed()
 	{
 		kills++;
 	}
@@ -26,6 +26,10 @@ public class Player {
 	
 	public int getMoney(){
 		return money;
+	}
+	
+	public void getMoney(int money){
+		this.money += money;
 	}
 	
 	public int getHealth(){

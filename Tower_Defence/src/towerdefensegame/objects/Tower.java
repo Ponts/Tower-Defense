@@ -19,8 +19,8 @@ public class Tower {
 		if(name == "basic"){
 			this.rateOfFire = 5;
 			this.damage = 5;
-			this.range = 100;
-			this.cost = 10;
+			this.range = 32*3;
+			this.cost = 100;
 			this.upgradeMultiplier = 2;			
 		}
 		
@@ -65,4 +65,13 @@ public class Tower {
 	public float getX() {
 		return this.X;
 	}
+	
+	public int getRange(){
+		return this.range;
+	}
+	
+	public int getDamage(){
+		return damage;
+	}
 }
+

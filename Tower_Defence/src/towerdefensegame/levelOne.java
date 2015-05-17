@@ -63,13 +63,18 @@ public class levelOne extends BasicGameState {
 			towers.add(new Tower("basic", xPos, yPos));
 		}
 		
+		
+		
 		Circle c;
 		for(int i = waves.size() -1; i >= 0; i-- ){
+			
 			
 			c = waves.get(i);
 			circleX = c.getCenterX();
 			circleY = c.getCenterY();
-			
+			if(xPos -circleX<10){
+				waves.remove(c);
+			}
 			if(circleY < 45){
 				c.setCenterY(circleY + delta/6f);
 			}
@@ -101,6 +106,8 @@ public class levelOne extends BasicGameState {
 					sbg.enterState(0);
 				}
 			}
+			
+			
 		}
 	}
 
