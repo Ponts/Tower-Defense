@@ -4,7 +4,17 @@
 <fullyQualifiedTypeName name="org.newdawn.slick.state.StateBasedGame"/>
 <fullyQualifiedTypeName name="org.newdawn.slick.AppGameContainer"/>
 <fullyQualifiedTypeName name="org.newdawn.slick.state.BasicGameState"/>
-<fullyQualifiedTypeName name="org.newdawn.slick.Image"/>
 <fullyQualifiedTypeName name="org.lwjgl.input.Mouse"/>
 <fullyQualifiedTypeName name="org.newdawn.slick.Input"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="org.newdawn.slick.util.pathfinding.AStarPathFinder"/>
+<fullyQualifiedTypeName name="org.newdawn.slick.util.pathfinding.TileBasedMap"/>
+<fullyQualifiedTypeName name="org.newdawn.slick.tiled.TiledMap"/>
+<fullyQualifiedTypeName name="org.newdawn.slick.util.pathfinding.Mover"/>
+<fullyQualifiedTypeName name="org.newdawn.slick.SlickException"/>
+<fullyQualifiedTypeName name="org.newdawn.slick.Image"/>
+<fullyQualifiedTypeName name="org.newdawn.slick.util.pathfinding.PathFinder"/>
+<fullyQualifiedTypeName name="org.newdawn.slick.GameContainer"/>
+<fullyQualifiedTypeName name="org.newdawn.slick.util.pathfinding.Path"/>
+<fullyQualifiedTypeName name="java.util.Iterator"/>
 </qualifiedTypeNameHistroy>

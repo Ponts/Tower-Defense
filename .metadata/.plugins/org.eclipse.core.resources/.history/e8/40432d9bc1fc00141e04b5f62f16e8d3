@@ -112,9 +112,19 @@ public class LevelTwo extends BasicGameState {
 		/*for(Tower tower : towers) {
 			tower.act();
 		}*/
-		
-		checkTowerRange(container);
-		
+		for(Tower t:towers){
+			Enemy c;
+			for(int i = enemies.size() -1; i >= 0; i-- ){
+				
+				
+				c = enemies.get(i);
+				float circleX = c.getX();
+				float circleY = c.getY();
+			if(t.getX() -circleX<t.getRange() && container.getHeight() - t.getY() - circleY<t.getRange()){
+			enemies.remove(c);
+				}
+			}
+		}
 		
 		Enemy c;
 		for(int i = enemies.size() -1; i >= 0; i-- ){
@@ -163,21 +173,6 @@ public class LevelTwo extends BasicGameState {
 		return ID;
 	}
 
-	private void checkTowerRange(GameContainer container){
-		for(Tower t:towers){
-			Enemy e;
-			for(int i = enemies.size() -1; i >= 0; i-- ){
-				e = enemies.get(i);
-				float X = e.getX();
-				float Y = e.getY();
-				if(t.getX() -X<t.getRange() && container.getHeight() - t.getY() - Y<t.getRange()){
-					enemies.remove(e);
-				}
-			}
-		}
-		
-	}
-	
 	private TiledMap load() throws SlickException {
 		return new TiledMap("res//Level2.tmx", "res//pictures//tileset.png");
 	}

@@ -165,13 +165,13 @@ public class LevelTwo extends BasicGameState {
 
 	private void checkTowerRange(GameContainer container){
 		for(Tower t:towers){
-			Enemy e;
+			Enemy c;
 			for(int i = enemies.size() -1; i >= 0; i-- ){
-				e = enemies.get(i);
-				float X = e.getX();
-				float Y = e.getY();
-				if(t.getX() -X<t.getRange() && container.getHeight() - t.getY() - Y<t.getRange()){
-					enemies.remove(e);
+				c = enemies.get(i);
+				float circleX = c.getX();
+				float circleY = c.getY();
+			if(t.getX() -circleX<t.getRange() && container.getHeight() - t.getY() - circleY<t.getRange()){
+			enemies.remove(c);
 				}
 			}
 		}

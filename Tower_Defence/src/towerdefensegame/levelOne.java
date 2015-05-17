@@ -72,9 +72,6 @@ public class levelOne extends BasicGameState {
 			c = waves.get(i);
 			circleX = c.getCenterX();
 			circleY = c.getCenterY();
-			if(xPos -circleX<10){
-				waves.remove(c);
-			}
 			if(circleY < 45){
 				c.setCenterY(circleY + delta/6f);
 			}
