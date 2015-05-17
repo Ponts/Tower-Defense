@@ -10,17 +10,17 @@ public class Game extends StateBasedGame{
 	private static int meny = 0;
 	private static int levelSelect = 1;
 	private static int levelOne = 2;
-	/*private static int levelTwo = 3;
-	private static int levelThree = 4;*/
+	private static int levelTwo = 3;
+	/*private static int levelThree = 4;*/
 	
 	public Game(String name) {
 		super(name);
 		this.addState(new Meny(meny));
 		this.addState(new LevelSelect(levelSelect));
 		this.addState(new levelOne(levelOne));
-		/*
-		this.addState(new levelTwo(levelTwo));
-		this.addState(new levelThree(levelThree));*/
+		
+		this.addState(new LevelTwo(levelTwo));
+		/*this.addState(new levelThree(levelThree));*/
 		
 	}
 
@@ -36,9 +36,11 @@ public class Game extends StateBasedGame{
 			AppGameContainer app = new AppGameContainer(game, 800, 600, false);
 			app.start();
 			
+			
 		}catch(SlickException e){
 			e.printStackTrace();
 		}
+		
 	}
 	
 }

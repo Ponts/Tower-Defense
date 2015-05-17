@@ -82,7 +82,7 @@ public class LevelSelect extends BasicGameState {
 			} else {
 				if(levelTwo){
 					// TODO
-					//sbg.enterState(3)
+					sbg.enterState(3);
 				}
 				levelTwo = false;
 			}
@@ -118,6 +118,7 @@ public class LevelSelect extends BasicGameState {
 		} else {
 			back = false;
 		}
+		container.setMouseGrabbed(false);
 	}
 
 	@Override

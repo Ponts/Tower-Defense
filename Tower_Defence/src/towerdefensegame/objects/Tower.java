@@ -14,7 +14,6 @@ public class Tower {
 		this.sprite = new Image("res//" + name + ".png");
 		this.name = name;
 		this.upgradeLevel = 0;
-		
 		this.X = xPos;
 		this.Y = yPos;
 		
@@ -36,6 +35,10 @@ public class Tower {
 		// else if jaadaaa jadaaa
 	}
 	
+	public void act(){
+		shoot();
+	}
+	
 	private void shoot(){
 		// TODO
 		//if target within range
@@ -48,7 +51,7 @@ public class Tower {
 		this.cost *= upgradeMultiplier;
 		this.upgradeLevel += 1;
 	}
-	private int getCost(){
+	public int getCost(){
 		return cost;
 	}
 

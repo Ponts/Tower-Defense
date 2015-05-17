@@ -55,6 +55,10 @@ public class levelOne extends BasicGameState {
 		boolean rightMousePressed = input.isMousePressed(input.MOUSE_RIGHT_BUTTON);
 		boolean leftMousePressed = input.isMousePressed(input.MOUSE_LEFT_BUTTON);
 		
+		if(input.isKeyPressed(input.KEY_ESCAPE)) {
+			sbg.enterState(getID()-1);
+		}
+		
 		if(leftMousePressed){
 			towers.add(new Tower("basic", xPos, yPos));
 		}
@@ -93,6 +97,7 @@ public class levelOne extends BasicGameState {
 				
 				if(baseHealth <= 0){
 					System.out.println("Game Over!");
+					
 					sbg.enterState(0);
 				}
 			}

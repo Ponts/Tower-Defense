@@ -8,8 +8,8 @@ public class Player {
 		kills = 0;
 	}
 	
-	private void pay(int cost){
-		money += -cost;
+	public void pay(int cost){
+		money = money - cost;
 	}
 	
 	/**
@@ -20,8 +20,16 @@ public class Player {
 		kills++;
 	}
 	
-	private void takeDamage(int damage){
+	public void takeDamage(int damage){
 		health += -damage;
+	}
+	
+	public int getMoney(){
+		return money;
+	}
+	
+	public int getHealth(){
+		return health;
 	}
 }
 

@@ -4,4 +4,7 @@
 <fullyQualifiedTypeName name="org.newdawn.slick.state.StateBasedGame"/>
 <fullyQualifiedTypeName name="org.newdawn.slick.AppGameContainer"/>
 <fullyQualifiedTypeName name="org.newdawn.slick.state.BasicGameState"/>
+<fullyQualifiedTypeName name="org.newdawn.slick.Image"/>
+<fullyQualifiedTypeName name="org.lwjgl.input.Mouse"/>
+<fullyQualifiedTypeName name="org.newdawn.slick.Input"/>
 </qualifiedTypeNameHistroy>
