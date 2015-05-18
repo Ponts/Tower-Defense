@@ -16,7 +16,11 @@ class LayerBasedMap implements TileBasedMap {
 
     @Override
     public boolean blocked(PathFindingContext ctx, int x, int y) {
-        return map.getTileId(x, y, blockingLayerId) != 0;
+    	// if the tile has 
+    	// blockingLayerId == 0 means that it is road, 
+    	// blockingLayerId == 1 means that it is scenery
+    	// blockingLayerId == 2 means that it is blockage
+        return map.getTileId(x, y, blockingLayerId) != 0;		// 0 means that it is NOT blocked?
     }
 
     @Override
