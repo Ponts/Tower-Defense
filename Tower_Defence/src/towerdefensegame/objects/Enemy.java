@@ -1,16 +1,38 @@
 package towerdefensegame.objects;
 
+<<<<<<< HEAD
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 
 public class Enemy {
 	private double walkSpeed;
+=======
+import java.util.ArrayList;
+
+import org.newdawn.slick.GameContainer;
+import org.newdawn.slick.Graphics;
+import org.newdawn.slick.Image;
+import org.newdawn.slick.SlickException;
+import org.newdawn.slick.state.StateBasedGame;
+import org.newdawn.slick.util.pathfinding.Mover;
+import org.newdawn.slick.util.pathfinding.Path;
+import org.newdawn.slick.util.pathfinding.PathFinder;
+
+public class Enemy implements Mover{
+	private int walkSpeed;
+>>>>>>> origin/master
 	private int attackDamage;
 	private int attackSpeed;
 	private int health;
 	private int bounty;
 	private String special = null;
+	private Image sprite;
+	private float x,y;
+	private String name;
+	private int i = 0;
+	private int bounty;
 	
+<<<<<<< HEAD
 	private float X;
 	private float Y;
 	
@@ -38,22 +60,59 @@ public class Enemy {
 			//this.special = ...
 		}
 		
+=======
+	public Enemy(String name, float xPos, float yPos, int bounty) throws SlickException{
+		this.sprite = new Image("res//" + name + ".png");
+		this.x=xPos;
+		this.y=yPos;
+		this.name = name;
+		this.bounty = bounty;
+	}
+	public void initTank(){
+		this.walkSpeed = 1;
+		this.attackDamage = 2;
+		this.attackSpeed = 1;
+		this.health = 500;
+		//this.special = ...
+>>>>>>> origin/master
 	}
 	
-	private void walk(){
+	public Image getSprite(){
+		return sprite;
+	}
+	
+	public float getY() {
+		return this.y;
+	}
+
+	public float getX() {
+		return this.x;
+	}
+
+	/*public void move(Path path)
+	{
+		x=path.getStep(i).getX()*32;
+		y=path.getStep(i).getY()*32;
+		i++;
+	}
+	*/
+	
+	public void render(GameContainer container, StateBasedGame sbg, Graphics g)
+			throws SlickException {
+		g.drawImage(sprite, x, y);
+	}
+
+	public void takeDamage(int damage){
+		health = health - damage;
 		
 	}
 	
-	private void hit(){
-		
+	public int getHealth(){
+		return health;
 	}
 	
-	private void special(){
-		
-	}
-	
-	private void bounty(){
-		
+	public int getBounty(){
+		return bounty;
 	}
 
 	public float getX() {
@@ -86,4 +145,12 @@ public class Enemy {
 		return this.sprite;
 	}
 	
+	public void setX(float x){
+		this.x=x;
+	}
+	
+	public void setY(float y){
+		this.y=y;
+	}
 }
+

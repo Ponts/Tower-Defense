@@ -8,20 +8,32 @@ public class Player {
 		kills = 0;
 	}
 	
-	private void pay(int cost){
-		money += -cost;
+	public void pay(int cost){
+		money = money - cost;
 	}
 	
 	/**
 	 * Player killed a enemy,  increase no of kills.
 	 */
-	private void killed()
+	public void killed()
 	{
 		kills++;
 	}
 	
-	private void takeDamage(int damage){
+	public void takeDamage(int damage){
 		health += -damage;
+	}
+	
+	public int getMoney(){
+		return money;
+	}
+	
+	public void getMoney(int money){
+		this.money += money;
+	}
+	
+	public int getHealth(){
+		return health;
 	}
 }
 

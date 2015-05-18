@@ -2,7 +2,6 @@ package towerdefensegame.objects;
 
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
-import org.newdawn.slick.geom.Shape;
 
 public class Tower {
 	private String name;
@@ -14,15 +13,14 @@ public class Tower {
 		this.sprite = new Image("res//" + name + ".png");
 		this.name = name;
 		this.upgradeLevel = 0;
-		
 		this.X = xPos;
 		this.Y = yPos;
 		
 		if(name == "basic"){
 			this.rateOfFire = 5;
 			this.damage = 5;
-			this.range = 100;
-			this.cost = 10;
+			this.range = 32*3;
+			this.cost = 100;
 			this.upgradeMultiplier = 2;			
 		}
 		
@@ -34,6 +32,10 @@ public class Tower {
 			this.upgradeMultiplier = 3;
 		}
 		// else if jaadaaa jadaaa
+	}
+	
+	public void act(){
+		shoot();
 	}
 	
 	private void shoot(){
@@ -48,7 +50,7 @@ public class Tower {
 		this.cost *= upgradeMultiplier;
 		this.upgradeLevel += 1;
 	}
-	private int getCost(){
+	public int getCost(){
 		return cost;
 	}
 
@@ -63,4 +65,13 @@ public class Tower {
 	public float getX() {
 		return this.X;
 	}
+	
+	public int getRange(){
+		return this.range;
+	}
+	
+	public int getDamage(){
+		return damage;
+	}
 }
+
