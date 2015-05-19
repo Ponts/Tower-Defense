@@ -1,12 +1,5 @@
 package towerdefensegame.objects;
 
-<<<<<<< HEAD
-import org.newdawn.slick.Image;
-import org.newdawn.slick.SlickException;
-
-public class Enemy {
-	private double walkSpeed;
-=======
 import java.util.ArrayList;
 
 import org.newdawn.slick.GameContainer;
@@ -18,69 +11,65 @@ import org.newdawn.slick.util.pathfinding.Mover;
 import org.newdawn.slick.util.pathfinding.Path;
 import org.newdawn.slick.util.pathfinding.PathFinder;
 
-public class Enemy implements Mover{
+public class Enemy implements Mover {
 	private int walkSpeed;
->>>>>>> origin/master
 	private int attackDamage;
-	private int attackSpeed;
+	private int slowCounter;
+	private int slowDuration;
 	private int health;
-	private int bounty;
 	private String special = null;
 	private Image sprite;
-	private float x,y;
+	private float x, y;
 	private String name;
 	private int i = 0;
 	private int bounty;
-	
-<<<<<<< HEAD
-	private float X;
-	private float Y;
-	
-	private Image sprite;
-	
-	public Enemy(String type, float x, float y) throws SlickException{
-		this.sprite = new Image("res//" + type + ".png");
-		this.X = x;
-		this.Y = y;
-		
-		if(type == "tank"){
-			this.walkSpeed = 0.03;
-			this.attackDamage = 4;
-			this.attackSpeed = 1;
-			this.health = 700;
-			this.bounty = 100;
-			//this.special = ...
-		}
-		else if(type == "small"){
-			this.walkSpeed = 2;
-			this.attackDamage = 1;
-			this.attackSpeed = 2;
-			this.health = 150;
-			this.bounty = 20;
-			//this.special = ...
-		}
-		
-=======
-	public Enemy(String name, float xPos, float yPos, int bounty) throws SlickException{
+
+	public Enemy(String name, float xPos, float yPos, int bounty)
+			throws SlickException {
 		this.sprite = new Image("res//" + name + ".png");
-		this.x=xPos;
-		this.y=yPos;
+		this.x = xPos;
+		this.y = yPos;
 		this.name = name;
 		this.bounty = bounty;
+		this.health = 100;
+		this.i = 0;
+		this.attackDamage = 10;
+		this.walkSpeed = 2;
+		this.slowDuration = 3000;
 	}
-	public void initTank(){
-		this.walkSpeed = 1;
-		this.attackDamage = 2;
-		this.attackSpeed = 1;
-		this.health = 500;
-		//this.special = ...
->>>>>>> origin/master
+
+	public void update(int delta, Path road) {
+		float nextX = road.getX(getI()) * 32;
+		float nextY = road.getY(getI()) * 32;
+
+		if (getX() > nextX) {
+			setX(getX() - walkSpeed * delta / 12f);
+		} else {
+			setX(getX() + walkSpeed * delta / 12f);
+		}
+
+		if (getY() > nextY) {
+			setY(getY() - walkSpeed * delta / 12f);
+		} else {
+			setY(getY() + walkSpeed * delta / 12f);
+		}
+
+		if (Math.max(getX(), nextX) - Math.min(getX(), nextX) < 2
+				&& Math.max(getY(), nextY) - Math.min(getY(), nextY) < 2) {
+			setI(getI() + 1);
+		}
+
+		slowCounter--;
+		if (slowCounter <= 0) {
+			slowCounter = slowDuration;
+			walkSpeed = 2;
+		}
 	}
-	
-	public Image getSprite(){
+
+	public Image getSprite() {
 		return sprite;
 	}
-	
+
 	public float getY() {
 		return this.y;
 	}
@@ -89,68 +78,54 @@ public class Enemy implements Mover{
 		return this.x;
 	}
 
-	/*public void move(Path path)
-	{
-		x=path.getStep(i).getX()*32;
-		y=path.getStep(i).getY()*32;
-		i++;
-	}
-	*/
-	
 	public void render(GameContainer container, StateBasedGame sbg, Graphics g)
 			throws SlickException {
 		g.drawImage(sprite, x, y);
 	}
 
-	public void takeDamage(int damage){
+	public void takeDamage(int damage) {
 		health = health - damage;
-		
+
 	}
-	
-	public int getHealth(){
+
+	public int getHealth() {
 		return health;
 	}
-	
-	public int getBounty(){
+
+	public int getBounty() {
 		return bounty;
 	}
 
-	public float getX() {
-		return this.X;
+	public void setX(float x) {
+		this.x = x;
 	}
 
-	public float getY() {
-		return this.Y;
+	public void setY(float y) {
+		this.y = y;
 	}
 
-	public void setY(float f, String s) {
-		if(s == "d"){
-			this.Y += f*this.walkSpeed;
-		}
-		else if(s == "u"){
-			this.Y -= f*this.walkSpeed;
-		}
+	public boolean isAlive() {
+		return health > 0;
 	}
 
-	public void setX(float f, String s) {
-		if(s == "r"){
-			this.X += f*this.walkSpeed;
-		}
-		else if(s == "l"){
-			this.X -= f*this.walkSpeed;
-		}
+	public int getI() {
+		return i;
 	}
 
-	public Image getSprite() {
-		return this.sprite;
+	public void setI(int i) {
+		this.i = i;
 	}
-	
-	public void setX(float x){
-		this.x=x;
+
+	public int getDamage() {
+		return attackDamage;
 	}
-	
-	public void setY(float y){
-		this.y=y;
+
+	public void setAttackDamage(int attackDamage) {
+		this.attackDamage = attackDamage;
+	}
+
+	public void slow() {
+		walkSpeed = 1;
+
 	}
 }
-
