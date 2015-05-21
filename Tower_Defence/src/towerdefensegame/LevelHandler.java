@@ -19,10 +19,10 @@ import org.newdawn.slick.util.pathfinding.PathFinder;
 import towerdefensegame.objects.*;
 
 public class LevelHandler extends BasicGameState implements MusicListener {
-	private float mapStartX, mapStartY, mapEndX, mapEndY ;
+	private float mapStartX, mapStartY, mapEndX, mapEndY;
 	private int ID, roundNo, x, y;
 	private String mapName;
-	
+
 	private TiledMap map;
 	private ArrayList<Tower> towers;
 	private ArrayList<Enemy> enemies;
@@ -36,43 +36,44 @@ public class LevelHandler extends BasicGameState implements MusicListener {
 
 	public LevelHandler(int id) {
 		this.ID = id;
-		switch(id){
-			case(2):{
-				mapName = "Level1";
-				mapStartX = 16 * 32;
-				mapStartY = 0;
-				mapEndX = 4 * 32;				
-				mapEndY = 16 * 32;
-				break;
-			}
-			case(3):{
-				mapName = "Level2";
-				mapStartX = 5 * 32;
-				mapStartY = 0;
-				mapEndX = 20 * 32;
-				mapEndY = 16 * 32;
-				break;
-			}
-			case(4):{
-				mapName = "Level3";
-				mapStartX = 0;
-				mapStartY = 7 * 32;
-				mapEndX = 19 * 32;
-				mapEndY = 16 * 32;
-				break;
-			}
-			default:{
-				mapName = "Level2";
-				mapStartX = 5 * 32;
-				mapStartY = 0;
-				mapEndX = 20 * 32;
-				mapEndY = 16 * 32;
-				break;
-			}	
+		switch (id) {
+		case (2): {
+			mapName = "Level1";
+			mapStartX = 16 * 32;
+			mapStartY = 0;
+			mapEndX = 4 * 32;
+			mapEndY = 16 * 32;
+			break;
+		}
+		case (3): {
+			mapName = "Level2";
+			mapStartX = 5 * 32;
+			mapStartY = 0;
+			mapEndX = 20 * 32;
+			mapEndY = 16 * 32;
+			break;
+		}
+		case (4): {
+			mapName = "Level3";
+			mapStartX = 0;
+			mapStartY = 7 * 32;
+			mapEndX = 19 * 32;
+			mapEndY = 16 * 32;
+			break;
+		}
+		default: {
+			mapName = "Level2";
+			mapStartX = 5 * 32;
+			mapStartY = 0;
+			mapEndX = 20 * 32;
+			mapEndY = 16 * 32;
+			break;
+		}
 		}
 	}
 
-	////////////////////// INIT, UPDATE and RENDER methods	/////////////////////////
+	// //////////////////// INIT, UPDATE and RENDER methods
+	// /////////////////////////
 	public void init(GameContainer container, StateBasedGame arg1)
 			throws SlickException {
 		map = load();
@@ -84,10 +85,12 @@ public class LevelHandler extends BasicGameState implements MusicListener {
 		newRound();
 		openingMenuMusic = new Music("res//openingMusic.ogg");
 		ph = new AStarPathFinder(blockedMap, 1000, false);
-		path = ph.findPath(null, (int) mapStartX/32, (int) mapStartY/32, (int) mapEndX/32, (int) mapEndY/32);
+		path = ph.findPath(null, (int) mapStartX / 32, (int) mapStartY / 32,
+				(int) mapEndX / 32, (int) mapEndY / 32);
 	}
 
-	public void update(GameContainer container, StateBasedGame sbg, int delta) throws SlickException {
+	public void update(GameContainer container, StateBasedGame sbg, int delta)
+			throws SlickException {
 		Input input = container.getInput();
 		container.setMouseGrabbed(true);
 
@@ -97,92 +100,94 @@ public class LevelHandler extends BasicGameState implements MusicListener {
 
 		if (input.isKeyPressed(Input.KEY_ENTER))
 			newRound();
-		
+
 		// go back to level select
-		if (input.isKeyPressed(Input.KEY_ESCAPE)){
+		if (input.isKeyPressed(Input.KEY_ESCAPE)) {
 			stopMusic();
 			resetLevel(false);
 			sbg.enterState(1);
 		}
-	
+
 		if (input.isKeyPressed(Input.KEY_P)) {
 			stopMusic();
 			sbg.enterState(1);
 		}
-		
+
 		// spawn different towers
 		checkAndSpawnTower(input, yPos);
 
 		// towers shoot
 		towerAct(container);
-		
+
 		// Start the round
-		if (startRound) 
+		if (startRound)
 			startTheRound(sbg, container, delta);
 
 		shotBullet(delta);
 	}
 
-
-	public void render(GameContainer container, StateBasedGame sbg, Graphics g) throws SlickException {
+	public void render(GameContainer container, StateBasedGame sbg, Graphics g)
+			throws SlickException {
 		map.render(0, 0);
 		showHealthAndMoney(g);
 		g.fillRect(x, y, 32, 32); // Current mouse location
 
 		for (Tower t : towers)
-			g.drawImage(t.getSprite(), t.getX(), container.getHeight() - t.getY());
+			g.drawImage(t.getSprite(), t.getX(),
+					container.getHeight() - t.getY());
 
 		if (startRound) {
 			for (Enemy e : enemies)
 				e.render(container, sbg, g);
 		}
 
-		for (Bullet b : bullets) 
+		for (Bullet b : bullets)
 			b.render(container, sbg, g);
 	}
 
 	// ///////////// other methods ////////////////////
-	private void checkAndSpawnTower(Input input, float yPos) throws SlickException {
+	private void checkAndSpawnTower(Input input, float yPos)
+			throws SlickException {
 		boolean key1Pressed = input.isKeyPressed(Input.KEY_1);
 		boolean key2Pressed = input.isKeyPressed(Input.KEY_2);
 		boolean key3Pressed = input.isKeyPressed(Input.KEY_3);
-		try{
-			int cursorLocationTileId = map.getTileId((x + 16) / 32, (y + 16) / 32, 1);
-			
+		try {
+			int cursorLocationTileId = map.getTileId((x + 16) / 32,
+					(y + 16) / 32, 1);
+
 			String whichTower = "";
-			if (key1Pressed && cursorLocationTileId != 0) 
+			if (key1Pressed && cursorLocationTileId != 0)
 				whichTower = "basic";
-			
-			else if (key2Pressed && cursorLocationTileId != 0) 
+
+			else if (key2Pressed && cursorLocationTileId != 0)
 				whichTower = "rapid";
-			
-			else if (key3Pressed && cursorLocationTileId != 0) 
+
+			else if (key3Pressed && cursorLocationTileId != 0)
 				whichTower = "slow";
-			
-			if(whichTower != ""){
+
+			if (whichTower != "") {
 				Tower tower = new Tower(whichTower, x, yPos);
-				if (player.getMoney() >= tower.getCost()) 
+				if (player.getMoney() >= tower.getCost())
 					doTower(tower);
-				else 
+				else
 					System.out.println("Not enough money");
 			}
-		}
-		catch(Exception ArrayIndexOutOfBoundsException){
+		} catch (Exception ArrayIndexOutOfBoundsException) {
 		}
 	}
 
 	private void startTheRound(StateBasedGame sbg, GameContainer container,
 			int delta) {
 		Enemy c;
-		
+
 		for (int i = enemies.size() - 1; i >= 0; i--) {
 			c = enemies.get(i);
 			c.update(delta, path);
-			if (	Math.abs(c.getX() - mapEndX) < 10 &&
-					Math.abs(c.getY() - mapEndY) < 10 ) {
+			if (Math.abs(c.getX() - mapEndX) < 10
+					&& Math.abs(c.getY() - mapEndY) < 10) {
 				enemies.remove(c);
 				player.takeDamage(c.getDamage());
-				
+
 				if (player.getHealth() <= 0) {
 					sbg.enterState(0);
 					container.setMouseGrabbed(false);
@@ -204,32 +209,35 @@ public class LevelHandler extends BasicGameState implements MusicListener {
 			gameOverMusic();
 		}
 	}
-	
+
 	private void gameOverMusic() throws SlickException {
 		Music end = new Music("res//gameover.ogg");
 		end.play();
 	}
-	
+
 	private void stopMusic() {
 		openingMenuMusic.play();
 		openingMenuMusic.stop();
 	}
-	
-	private void towerAct(GameContainer container) throws SlickException{
-		for(Tower t:towers){
+
+	private void towerAct(GameContainer container) throws SlickException {
+		for (Tower t : towers) {
 			Enemy e;
 			t.reloading();
-			for(int i = enemies.size() -1; i >= 0; i-- ){
+			for (int i = enemies.size() - 1; i >= 0; i--) {
 				e = enemies.get(i);
-				
-				if(t.shootReady(e, container)){
+
+				if (t.shootReady(e, container)) {
 					float enemyX = e.getX();
-					float enemyY = e.getY();	
-					bullets.add(new Bullet(t.getX(), container.getHeight() - t.getY(), enemyX, enemyY, t.getBulletName()));
+					float enemyY = e.getY();
+					bullets.add(new Bullet(t.getX(), container.getHeight()
+							- t.getY(), enemyX, enemyY, t.getBulletName()));
 					t.reload();
 					e.takeDamage(t.getDamage());
-					
-					if(!e.isAlive()){
+					if (t.getName() == "slow") {
+						e.slow();
+					}
+					if (!e.isAlive()) {
 						player.getMoney(e.getBounty());
 						enemies.remove(e);
 					}
@@ -237,14 +245,14 @@ public class LevelHandler extends BasicGameState implements MusicListener {
 			}
 		}
 	}
-	
+
 	public void shotBullet(int delta) {
 		Bullet b;
 		for (int i = bullets.size() - 1; i >= 0; i--) {
 			b = bullets.get(i);
 			b.update(delta);
-			
-			if (b.reached()) 
+
+			if (b.reached())
 				bullets.remove(b);
 		}
 	}
@@ -256,27 +264,32 @@ public class LevelHandler extends BasicGameState implements MusicListener {
 	}
 
 	private void newRound() throws SlickException {
-		for (int i = 0; i < roundNo; i++) 
-			if(mapName == "Level1")
-				enemies.add(new Enemy("cactiball", mapStartX, mapStartY - (i * 64), 10));
-			else if(mapName == "Level2")
-				enemies.add(new Enemy("cactiball", mapStartX, mapStartY - (i * 64), 10));
-			else if(mapName == "Level3")
-				enemies.add(new Enemy("cactiball", mapStartX, mapStartY - (i * 64), 10));
-		
-		
+		for (int i = 0; i < roundNo; i++)
+			if (mapName == "Level1")
+				enemies.add(new Enemy("cactiball", mapStartX, mapStartY
+						- (i * 64), 10));
+			else if (mapName == "Level2")
+				enemies.add(new Enemy("cactiball", mapStartX, mapStartY
+						- (i * 64), 10));
+			else if (mapName == "Level3")
+				enemies.add(new Enemy("cactiball", mapStartX, mapStartY
+						- (i * 64), 10));
+
 		roundNo++;
 		startRound = true;
 	}
 
 	private void showHealthAndMoney(Graphics g) {
-		g.drawString("Health " + player.getHealth() + ", Money " + player.getMoney(), 10, 580);
+		g.drawString(
+				"Health " + player.getHealth() + ", Money " + player.getMoney(),
+				10, 580);
 	}
 
 	private TiledMap load() throws SlickException {
-		return new TiledMap("res//"+ mapName + ".tmx", "res//" + mapName + "//pictures//tileset.png");
+		return new TiledMap("res//" + mapName + ".tmx", "res//" + mapName
+				+ "//pictures//tileset.png");
 	}
-	
+
 	public int getID() {
 		return ID;
 	}
